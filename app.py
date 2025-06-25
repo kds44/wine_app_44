@@ -34,16 +34,7 @@ if 'processor' not in st.session_state:
     st.session_state.data_loaded = False
 
 def load_data_if_needed():
-    """
-    Loads and processes the wine quality dataset if not already loaded.
-    This function handles the entire data pipeline including:
-    - Loading the dataset
-    - Cleaning and feature engineering
-    - Training the machine learning model
-    
-    Returns:
-        None: Updates the session state with processed data and trained model
-    """
+    # Loads and processes wine quality dataset if not already loaded
     if not st.session_state.data_loaded:
         logger.info("Loading wine quality dataset...")
         if st.session_state.processor.load_data():
@@ -59,20 +50,7 @@ def load_data_if_needed():
             logger.error("Failed to load dataset")
 
 def main_dashboard():
-    """
-    Renders the main dashboard interface of the application.
-    This function:
-    - Displays the application title and welcome message
-    - Loads the required data
-    - Creates the main navigation tabs
-    - Handles user logout functionality
-    
-    The dashboard is divided into four main sections:
-    1. Prediction interface
-    2. Data exploration
-    3. Visualizations
-    4. Model performance metrics
-    """
+    # Renders the main dashboard interface with tabs for different features
     st.title("🍷 Wine Quality Predictor")
     st.markdown("*Predict wine quality based on chemical properties*")
     
@@ -109,26 +87,7 @@ def main_dashboard():
         view_application_logs()
 
 def prediction_interface():
-    """
-    Creates an interactive interface for wine quality prediction.
-    This function:
-    - Provides sliders for inputting all wine properties
-    - Makes predictions using the trained model
-    - Displays prediction results with confidence metrics
-    - Shows feature importance for decision support
-    
-    The interface allows users to input all chemical properties of wine:
-    - Fixed acidity
-    - Volatile acidity
-    - Citric acid
-    - Residual sugar
-    - Chlorides
-    - Free sulfur dioxide
-    - Total sulfur dioxide
-    - pH
-    - Sulphates
-    - Alcohol
-    """
+    # Creates interactive interface for wine quality prediction
     st.header("Wine Quality Prediction")
     st.markdown("Enter wine properties to predict quality (scale 3-8)")
     
@@ -174,21 +133,7 @@ def prediction_interface():
             logger.info(f"Prediction made by {get_current_user()}: {prediction:.2f}")
 
 def data_exploration():
-    """
-    Displays data exploration and descriptive statistics section.
-    This function:
-    - Shows dataset overview statistics
-    - Displays quality distribution
-    - Presents average alcohol content by quality
-    - Shows basic statistical measures
-    
-    The exploration includes:
-    - Total number of samples
-    - Number of features
-    - Quality range
-    - Quality distribution chart
-    - Statistical summaries
-    """
+    # Displays data exploration and descriptive statistics
     st.header("📊 Data Exploration")
     
     # Get descriptive statistics
@@ -216,18 +161,7 @@ def data_exploration():
             st.dataframe(stats['basic_stats'].round(2))
 
 def visualizations():
-    """
-    Creates and displays three different types of data visualizations.
-    This function generates:
-    1. Scatter Plot: Shows relationship between alcohol content and quality
-    2. Correlation Heatmap: Displays correlations between key features
-    3. Box Plot: Shows quality distribution across three specific alcohol ranges:
-       - Low (8-10%): Light wines
-       - Medium (10-13%): Standard wines
-       - High (13-15%): Strong wines
-    
-    Each visualization is interactive and provides different insights into the data.
-    """
+    # Creates and displays three different types of data visualizations
     st.header("📈 Data Visualizations")
     
     data = st.session_state.processor.get_data_for_visualization()
@@ -294,16 +228,7 @@ def visualizations():
     st.plotly_chart(fig3, use_container_width=True)
 
 def model_performance():
-    """
-    Displays model performance metrics and system monitoring information.
-    This function shows:
-    - Training and test metrics (R², MSE, MAE)
-    - Model health indicator
-    - System status information
-    - Current user and session information
-    
-    The metrics help users understand the model's reliability and performance.
-    """
+    # Displays model performance metrics
     st.header("Model Performance")
     
     metrics = st.session_state.processor.get_model_metrics()
@@ -319,9 +244,7 @@ def model_performance():
             st.metric("Test MAE", f"{metrics['test_mae']:.3f}")
 
 def view_application_logs():
-    """
-    Displays application logs in the app.
-    """
+    # Displays application logs in the app
     st.header("📋 Application Logs")
     
     # User Information
@@ -347,16 +270,7 @@ def view_application_logs():
         st.error(f"Error reading log file: {str(e)}")
 
 def main():
-    """
-    Main application entry point.
-    This function:
-    - Handles user authentication
-    - Displays login form for unauthenticated users
-    - Shows main dashboard for authenticated users
-    
-    The function manages the application's authentication flow and
-    initializes the main interface based on user authentication status.
-    """
+    # Main application entry point - handles authentication and dashboard
     # Check authentication
     if not is_authenticated():
         st.title("🍷 Wine Quality Predictor")

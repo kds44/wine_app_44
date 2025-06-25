@@ -12,38 +12,13 @@ USERS = {
 }
 
 def check_password(username, password):
-    """
-    Verifies user credentials against the stored password hash.
-    
-    Args:
-        username (str): The username to verify
-        password (str): The plain text password to verify
-        
-    Returns:
-        bool: True if username exists and password matches, False otherwise
-        
-    Note:
-        Uses bcrypt for secure password verification
-    """
+    # Verifies user credentials against stored password hash
     if username in USERS:
         return bcrypt.checkpw(password.encode('utf-8'), USERS[username].encode('utf-8'))
     return False
 
 def login_form():
-    """
-    Displays and handles the login form interface.
-    This function:
-    - Creates a sidebar login form with username and password fields
-    - Handles form submission
-    - Authenticates user credentials
-    - Updates session state upon successful login
-    - Provides feedback for failed login attempts
-    
-    Side Effects:
-        - Updates st.session_state.authenticated
-        - Updates st.session_state.username
-        - Logs login attempts and results
-    """
+    # Displays and handles the login form interface
     st.sidebar.title("🔐 Login")
     
     with st.sidebar.form("login_form"):
@@ -63,19 +38,7 @@ def login_form():
                 logger.warning(f"Failed login attempt for username: {username}")
 
 def logout():
-    """
-    Handles user logout functionality.
-    This function:
-    - Clears authentication state
-    - Removes user information from session
-    - Logs the logout event
-    - Triggers page rerun to update UI
-    
-    Side Effects:
-        - Updates st.session_state.authenticated
-        - Updates st.session_state.username
-        - Logs logout event
-    """
+    # Handles user logout functionality
     if st.sidebar.button("Logout"):
         st.session_state.authenticated = False
         st.session_state.username = None
@@ -83,25 +46,9 @@ def logout():
         st.rerun()
 
 def is_authenticated():
-    """
-    Checks if a user is currently authenticated.
-    
-    Returns:
-        bool: True if user is authenticated, False otherwise
-        
-    Note:
-        Relies on st.session_state.authenticated being set
-    """
+    # Checks if a user is currently authenticated
     return st.session_state.get('authenticated', False)
 
 def get_current_user():
-    """
-    Retrieves the username of the currently logged-in user.
-    
-    Returns:
-        str or None: Username of current user if authenticated, None otherwise
-        
-    Note:
-        Relies on st.session_state.username being set
-    """
+    # Retrieves the username of the currently logged-in user
     return st.session_state.get('username', None) 
