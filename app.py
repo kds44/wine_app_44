@@ -8,6 +8,13 @@ from datetime import datetime
 from auth import login_form, logout, is_authenticated, get_current_user
 from data_processor import WineQualityProcessor
 
+# Custom logging handler for session state
+class SessionLogHandler(logging.Handler):
+    def emit(self, record):
+        log_entry = self.format(record)
+        if 'session_logs' in st.session_state:
+            st.session_state.session_logs.append(log_entry)
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -37,13 +44,6 @@ if 'processor' not in st.session_state:
 # Initialize session-based logging
 if 'session_logs' not in st.session_state:
     st.session_state.session_logs = []
-
-# Custom logging handler for session state
-class SessionLogHandler(logging.Handler):
-    def emit(self, record):
-        log_entry = self.format(record)
-        if 'session_logs' in st.session_state:
-            st.session_state.session_logs.append(log_entry)
 
 def load_data_if_needed():
     """
