@@ -1,0 +1,8 @@
+2025-06-24 23:42:58 - auth - INFO - User admin logged in successfully
+2025-06-24 23:42:58 - __main__ - INFO - Loading wine quality dataset...
+2025-06-24 23:42:58 - data_processor - INFO - Dataset loaded successfully: (1599, 12)
+2025-06-24 23:42:58 - data_processor - INFO - Removed 240 duplicate rows
+2025-06-24 23:42:58 - data_processor - INFO - Data cleaning completed. Final dataset shape: (993, 12)
+2025-06-24 23:43:00 - data_processor - INFO - Model trained successfully. Trained R²: 0.916
+2025-06-24 23:43:00 - __main__ - INFO - Data loaded and model trained successfully!
+2025-06-24 23:43:00 - data_processor - INFO - Descriptive statistics calculated
