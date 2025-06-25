@@ -15,7 +15,8 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S',
     handlers=[
         logging.FileHandler('app.log'),
-        logging.StreamHandler()
+        logging.StreamHandler(),
+        SessionLogHandler()
     ]
 )
 logger = logging.getLogger(__name__)
@@ -32,6 +33,17 @@ st.set_page_config(
 if 'processor' not in st.session_state:
     st.session_state.processor = WineQualityProcessor()
     st.session_state.data_loaded = False
+
+# Initialize session-based logging
+if 'session_logs' not in st.session_state:
+    st.session_state.session_logs = []
+
+# Custom logging handler for session state
+class SessionLogHandler(logging.Handler):
+    def emit(self, record):
+        log_entry = self.format(record)
+        if 'session_logs' in st.session_state:
+            st.session_state.session_logs.append(log_entry)
 
 def load_data_if_needed():
     """
@@ -333,18 +345,19 @@ def view_application_logs():
     with col2:
         st.write(f"**Session Time**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     with col3:
-        st.write("**Log File**: app.log")
+        st.write("**Log Source**: Session Logs")
     
     st.markdown("---")
     
-    try:
-        with open('app.log', 'r') as f:
-            logs = f.read()
-        st.text_area("Log Content", value=logs, height=600, disabled=True)
-    except FileNotFoundError:
-        st.error("Log file 'app.log' not found.")
-    except Exception as e:
-        st.error(f"Error reading log file: {str(e)}")
+    # Get session logs
+    session_logs = "\n".join(st.session_state.get('session_logs', []))
+    
+    # Display session logs
+    if session_logs.strip():
+        st.text_area("Session Logs", value=session_logs, height=600, disabled=True)
+    else:
+        st.info("No session logs available yet.")
+        st.write("**Logs will appear here as you use the application.**")
 
 def main():
     """
