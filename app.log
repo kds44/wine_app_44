@@ -6,3 +6,47 @@
 2025-06-24 23:43:00 - data_processor - INFO - Model trained successfully. Trained R²: 0.916
 2025-06-24 23:43:00 - __main__ - INFO - Data loaded and model trained successfully!
 2025-06-24 23:43:00 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:42:58 - auth - INFO - User admin logged in successfully
+2025-06-24 23:42:58 - __main__ - INFO - Loading wine quality dataset...
+2025-06-24 23:42:58 - data_processor - INFO - Dataset loaded successfully: (1599, 12)
+2025-06-24 23:42:58 - data_processor - INFO - Removed 240 duplicate rows
+2025-06-24 23:42:58 - data_processor - INFO - Data cleaning completed. Final dataset shape: (993, 12)
+2025-06-24 23:43:00 - data_processor - INFO - Model trained successfully. Trained R²: 0.916
+2025-06-24 23:43:00 - __main__ - INFO - Data loaded and model trained successfully!
+2025-06-24 23:43:00 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:54:48 - auth - INFO - User admin logged in successfully
+2025-06-24 23:54:48 - __main__ - INFO - Loading wine quality dataset...
+2025-06-24 23:54:48 - data_processor - INFO - Dataset loaded successfully: (1599, 12)
+2025-06-24 23:54:48 - data_processor - INFO - Removed 240 duplicate rows
+2025-06-24 23:54:48 - data_processor - INFO - Data cleaning completed. Final dataset shape: (993, 12)
+2025-06-24 23:54:50 - data_processor - INFO - Model trained successfully. Trained R²: 0.916
+2025-06-24 23:54:50 - __main__ - INFO - Data loaded and model trained successfully!
+2025-06-24 23:54:50 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:54:52 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:54:53 - data_processor - INFO - Prediction made: 5.67
+2025-06-24 23:54:53 - __main__ - INFO - Prediction made by admin: 5.67
+2025-06-24 23:54:53 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:54:56 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:54:57 - data_processor - INFO - Prediction made: 5.74
+2025-06-24 23:54:57 - __main__ - INFO - Prediction made by admin: 5.74
+2025-06-24 23:54:57 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:54:59 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:00 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:00 - data_processor - INFO - Prediction made: 5.93
+2025-06-24 23:55:00 - __main__ - INFO - Prediction made by admin: 5.93
+2025-06-24 23:55:00 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:02 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:03 - data_processor - INFO - Prediction made: 6.11
+2025-06-24 23:55:03 - __main__ - INFO - Prediction made by admin: 6.11
+2025-06-24 23:55:03 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:05 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:05 - data_processor - INFO - Prediction made: 5.58
+2025-06-24 23:55:05 - __main__ - INFO - Prediction made by admin: 5.58
+2025-06-24 23:55:05 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:06 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:08 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:09 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:10 - data_processor - INFO - Descriptive statistics calculated
+2025-06-24 23:55:11 - data_processor - INFO - Prediction made: 6.24
+2025-06-24 23:55:11 - __main__ - INFO - Prediction made by admin: 6.24
+2025-06-24 23:55:11 - data_processor - INFO - Descriptive statistics calculated
