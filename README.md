@@ -1,1 +1,1 @@
-kds-wineapp.streamlit.app
+https://kds-wineapp.streamlit.app/
